@@ -1,0 +1,11 @@
+<div class="form-inline">
+  <div class="form-group">
+    <label for="repo1">Repository1: </label>
+    <input type="text" class="form-control" id="repo1" placeholder="organisation/repository" [(ngModel)]="repo1">
+  </div>
+  <div class="form-group">
+    <label for="repo2">Repository2: </label>
+    <input type="text" class="form-control" id="repo2" placeholder="organisation/repository" [(ngModel)]="repo2">
+  </div>
+  <a class="btn btn-primary" (click)="onCompare()">Compare</a>
+</div>

@@ -1,0 +1,16 @@
+<table class="table text-center" style="margin-top: 20px;" [hidden]="list.length == 0">
+  <thead>
+  <th class="text-center">#</th>
+  <th class="text-center" *ngFor="let repo of list">{{ repo.data.full_name }}</th>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Stars</td>
+    <td *ngFor="let repo of list">{{ repo.data.stargazers_count }}</td>
+  </tr>
+  <tr>
+    <td>Forks</td>
+    <td *ngFor="let repo of list">{{ repo.data.forks_count }}</td>
+  </tr>
+  </tbody>
+</table>
