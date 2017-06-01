@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { ComparatorService } from './comparator.service';
 import { ComparisonTableComponent } from './comparison-table/comparison-table.component';
+import { RepositoryStatsComponent } from './repository-stats/repository-stats.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CockpitComponent,
-    ComparisonTableComponent
+    ComparisonTableComponent,
+    RepositoryStatsComponent
   ],
   imports: [
     BrowserModule,

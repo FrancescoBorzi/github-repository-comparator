@@ -40,5 +40,7 @@ export class ComparatorService {
         this.listUpdated.emit();
       }
     );
+
+    // TODO: // /repos/:owner/:repo/stats/contributors
   }
 }

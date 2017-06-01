@@ -1,0 +1,38 @@
+<img [src]="repo.data.owner.avatar_url" class="img-responsive owner-avatar">
+
+<h2 class="repo-title">{{ repo.data.name }}</h2>
+
+<div class="multi-property-wrapper">
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="property-wrapper">
+        <span class="property-label">Stars</span>
+        <i class="fa fa-star fa-2x property-icon" aria-hidden="true"></i>
+        <span class="property-value">{{ repo.data.stargazers_count }}</span>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="property-wrapper">
+        <span class="property-label">Forks</span>
+        <i class="fa fa-code-fork fa-2x property-icon" aria-hidden="true"></i>
+        <span class="property-value">{{ repo.data.forks_count }}</span>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <div class="property-wrapper">
+        <span class="property-label">Contributors</span>
+        <i class="fa fa-2x fa-users property-icon" aria-hidden="true">
+          <!--[ngClass]="{'fa-users': repo.contributors_count > 1, 'fa-user': repo.contributors_count < 2}">-->
+        </i>
+        <span class="property-value">12345</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="property-wrapper">
+  <span class="property-label">Last commit</span>
+  <span class="property-value">{{ repo.data.pushed_at }}</span>
+</div>

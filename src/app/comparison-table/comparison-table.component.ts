@@ -17,6 +17,9 @@ export class ComparisonTableComponent implements OnInit {
   ngOnInit() {
     this.list = this.cs.getList();
     this.cs.onListUpdated.subscribe(() => this.list = this.cs.getList());
+
+    // just a shortcut for development
+    this.cs.changeTargets("angular/angular", "microsoft/typescript");
   }
 
 }

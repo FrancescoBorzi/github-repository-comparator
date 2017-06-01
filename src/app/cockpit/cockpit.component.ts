@@ -7,16 +7,16 @@ import { ComparatorService } from "../comparator.service";
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent implements OnInit {
-  @Input() repo1: string = "ShinDarth/PvPstats";
-  @Input() repo2: string = "Helias/Keira2";
+  @Input() repo1: string;
+  @Input() repo2: string;
 
-  constructor(private comparatorService: ComparatorService) { }
+  constructor(private cs: ComparatorService) { }
 
   ngOnInit() {
   }
 
   onCompare() {
-    this.comparatorService.changeTargets(this.repo1, this.repo2);
+    this.cs.changeTargets(this.repo1, this.repo2);
   }
 
 }

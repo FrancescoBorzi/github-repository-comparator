@@ -1,0 +1,39 @@
+.owner-avatar {
+  max-width: 100px;
+  margin: auto;
+}
+
+.repo-title {
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.multi-property-wrapper {
+  max-width: 290px;
+  margin: auto;
+}
+
+.property-wrapper {
+  margin-bottom: 26px;
+}
+
+.property-label {
+  display: block;
+  text-align: center;
+  color: #777;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.property-icon {
+  display: block;
+  color: #000;
+}
+
+.property-value {
+  display: block;
+  text-align: center;
+  color: #000;
+  font-size: 23px;
+  font-weight: bold;
+}
