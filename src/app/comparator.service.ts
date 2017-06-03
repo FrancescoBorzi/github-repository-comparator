@@ -34,13 +34,44 @@ export class ComparatorService {
       (results) => {
         this.list = [];
         for (const repoData of results) {
-          this.list.push(new Repository(repoData));
+          const repo: Repository = new Repository(repoData);
+          this.list.push(repo);
+
+          this.fetchContributorsAmount(repo);
         }
 
         this.listUpdated.emit();
       }
     );
+  }
 
-    // TODO: // /repos/:owner/:repo/stats/contributors
+  private fetchContributorsAmount(repo: Repository) {
+    // Currently using this strategy: https://stackoverflow.com/a/44347632/3497671
+    // I wonder if there is there a better way
+
+    const params = '?per_page=1&anon=1';
+    const contributorsObs: Observable<Response> = this.http.get(
+      'https://api.github.com/repos/' + repo.data.full_name + '/contributors'
+      + params
+    );
+
+    contributorsObs.subscribe(
+      (contributorsResult: Response) => {
+        const link = contributorsResult.headers.get('link');
+
+        // For some reasons, when the amount is 1
+        // the 'Link' property is not present in the header
+        if (!link) {
+          repo.contributors_count = 1;
+          return;
+        }
+
+        const paramsRet = params + '&page=';
+        repo.contributors_count = +link.substring(
+          link.lastIndexOf(paramsRet) + paramsRet.length,
+          link.indexOf('>; rel="last"'),
+        );
+      }
+    );
   }
 }
