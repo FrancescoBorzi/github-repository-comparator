@@ -38,6 +38,7 @@ export class ComparatorService {
           this.list.push(repo);
 
           this.fetchContributorsAmount(repo);
+          this.fetchLastCommitOnMaster(repo);
         }
 
         this.listUpdated.emit();
@@ -70,6 +71,28 @@ export class ComparatorService {
         repo.contributors_count = +link.substring(
           link.lastIndexOf(paramsRet) + paramsRet.length,
           link.indexOf('>; rel="last"'),
+        );
+      }
+    );
+  }
+
+  private fetchLastCommitOnMaster(repo: Repository) {
+    const headObs: Observable<Response> = this.http.get(
+      'https://api.github.com/repos/' + repo.data.full_name + '/git/refs/heads/' + repo.data.default_branch
+    );
+
+    headObs.subscribe(
+      (headResult: Response) => {
+        const hash = headResult.json().object.sha;
+
+        const commitObs: Observable<Response> = this.http.get(
+          'https://api.github.com/repos/' + repo.data.full_name + '/commits/' + hash
+        );
+
+        commitObs.subscribe(
+          (commitResult: Response) => {
+            repo.lastCommit = commitResult.json();
+          }
         );
       }
     );

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { MomentModule } from 'angular2-moment';
 
 import { AppComponent } from './app.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
@@ -19,7 +20,8 @@ import { RepositoryStatsComponent } from './repository-stats/repository-stats.co
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    MomentModule
   ],
   providers: [ComparatorService],
   bootstrap: [AppComponent]

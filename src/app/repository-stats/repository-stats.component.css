@@ -5,16 +5,15 @@
 
 .repo-title {
   text-transform: capitalize;
-  margin-bottom: 20px;
-}
-
-.multi-property-wrapper {
-  max-width: 290px;
-  margin: auto;
+  margin-bottom: 6px;
 }
 
 .property-wrapper {
-  margin-bottom: 26px;
+  max-width: 290px;
+  margin: auto;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid grey;
 }
 
 .property-label {

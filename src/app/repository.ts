@@ -1,5 +1,6 @@
 export class Repository {
   private _contributors_count = 0;
+  lastCommit: Object;
 
   constructor(private _data) {}
 
